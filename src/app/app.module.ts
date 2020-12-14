@@ -17,19 +17,24 @@ import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSelectModule} from '@angular/material/select';
-
+import { CommonModule } from '@angular/common';  
+import { ProductoComponent } from './components/producto/producto.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent,
     ProductoListadoComponent,
     ListadoProductosComponent,
+    ProductoComponent,
     PrecioPipe
   ],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    CommonModule,
     FormsModule,
+    FlexLayoutModule,
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,

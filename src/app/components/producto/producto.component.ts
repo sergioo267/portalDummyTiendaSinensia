@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Producto } from 'src/app/model/producto';
 
 @Component({
-  selector: 'app-listado-productos',
-  templateUrl: './listado-productos.component.html',
-  styleUrls: ['./listado-productos.component.css']
+  selector: 'app-producto',
+  templateUrl: './producto.component.html',
+  styleUrls: ['./producto.component.css']
 })
-export class ListadoProductosComponent implements OnInit {
-  productos!:Producto[];
-  constructor() { }
+export class ProductoComponent implements OnInit {
+  productos:Producto[];
+  producto!:Producto;
 
-  ngOnInit(): void {
+  constructor(private activatedroute:ActivatedRoute) {
     this.productos = [new Producto("Cecotec ProClean 5110 Inox Microondas con Grill 700W",
     "El microondas ProClean 5110 Inox hará que destaques en tu cocina gracias a su amplia cantidad de modos y funciones. Envuelve completamente alimentos con el sistema de ondas altamente eficiente 3DWave, descongela y permite calentar cualquier elaboración, todo ello de la forma más fácil e intuitiva.",
     "Microondas de acero inoxidable de 20 l de capacidad\nDiseño elegante con frontal y tirador de acero inoxidable.\nInterior con revestimiento Ready2Clean, más fácil de limpiar, repele la suciedad.\nTecnología 3DWave con un sistema de ondas altamente eficiente que envuelve al 100 % los alimentos.\n8 programas predeterminados para diferentes alimentos.\nPantalla LED con reloj que muestra el tiempo de cocinado y la hora.\n700 W en 5 niveles de potencia.\nGrill de 800 W con resistencias halógenas más eficientes.\nModo de descongelación que se adapta a todos los alimentos.\nInicio automático: programa el microondas para que se ponga en marcha a la hora de comer.\nTemporizador hasta 60 minutos con avisador acústico de final de cocción.\nSeguro infantil para proteger a los más pequeños.",
@@ -52,4 +53,21 @@ export class ListadoProductosComponent implements OnInit {
   ]
   }
 
+  ngOnInit() {
+    this.activatedroute.paramMap.subscribe( paramMap => {
+      let productId = Number(paramMap.get('id'));
+      console.log(productId);
+      this.findProduct(productId);
+    })
+  }
+
+  findProduct(id:number){
+    for (let i = 0; i < this.productos.length; i++) {
+      if(this.productos[i].id == id){
+        this.producto = this.productos[i];
+        console.log(this.producto);
+        return;
+      }
+    }
+  }
 }

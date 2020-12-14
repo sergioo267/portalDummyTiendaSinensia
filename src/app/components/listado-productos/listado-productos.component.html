@@ -1,9 +1,12 @@
-
-<div style="margin-left: 5%; margin-right: 5%;" fxLayout="row" fxLayoutAlign="space-between start">
-    <div fxLayout="row" fxLayoutAlign="end center" >
-
-        <div *ngFor="let producto of productos" fxFlex = "25%"class="producto-card">
+<mat-grid-list cols="4" [gutterSize]="'20px'" rowHeight="350px" fit ="100%"  style="margin-left: 30px; margin-right: 30px;">
+    <mat-grid-tile  colspan = "1" *ngFor="let producto of productos" class="producto-card">
+        <div>
             <producto-listado [producto]="producto"></producto-listado>
         </div>
-    </div>
-</div>
+    </mat-grid-tile>
+</mat-grid-list>
+<!-- <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+    <ng-container *ngFor="let _ of [1,2,3,4,5,6]">
+        <app-card fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%"></app-card>
+    </ng-container>
+</div> -->
