@@ -1,8 +1,8 @@
 
-<div fxLayout="row" fxLayoutAlign="space-between start">
+<div style="margin-left: 5%; margin-right: 5%;" fxLayout="row" fxLayoutAlign="space-between start">
 
     <mat-grid-list cols="4" [gutterSize]="'20px'">
-        <mat-grid-tile *ngFor="let producto of productos">
+        <mat-grid-tile *ngFor="let producto of productos" class="producto-card">
             <producto-listado [producto]="producto"></producto-listado>
         </mat-grid-tile>
     </mat-grid-list>
