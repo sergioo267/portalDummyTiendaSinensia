@@ -8,9 +8,19 @@ import { Producto } from 'src/app/model/producto';
 })
 export class ListadoProductosComponent implements OnInit {
   productos!:Producto[];
+  innerWidth!:number;
+  numeroColumnas:number = 1;
   constructor() { }
 
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
+    if (this.innerWidth>1000){
+      this.numeroColumnas = 4;
+    }else {
+      this.numeroColumnas = 1
+    }
+
+
     this.productos = [new Producto("Cecotec ProClean 5110 Inox Microondas con Grill 700W",
     "El microondas ProClean 5110 Inox hará que destaques en tu cocina gracias a su amplia cantidad de modos y funciones. Envuelve completamente alimentos con el sistema de ondas altamente eficiente 3DWave, descongela y permite calentar cualquier elaboración, todo ello de la forma más fácil e intuitiva.",
     "Microondas de acero inoxidable de 20 l de capacidad\nDiseño elegante con frontal y tirador de acero inoxidable.\nInterior con revestimiento Ready2Clean, más fácil de limpiar, repele la suciedad.\nTecnología 3DWave con un sistema de ondas altamente eficiente que envuelve al 100 % los alimentos.\n8 programas predeterminados para diferentes alimentos.\nPantalla LED con reloj que muestra el tiempo de cocinado y la hora.\n700 W en 5 niveles de potencia.\nGrill de 800 W con resistencias halógenas más eficientes.\nModo de descongelación que se adapta a todos los alimentos.\nInicio automático: programa el microondas para que se ponga en marcha a la hora de comer.\nTemporizador hasta 60 minutos con avisador acústico de final de cocción.\nSeguro infantil para proteger a los más pequeños.",

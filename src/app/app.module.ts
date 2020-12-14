@@ -20,13 +20,15 @@ import {MatSelectModule} from '@angular/material/select';
 import { CommonModule } from '@angular/common';  
 import { ProductoComponent } from './components/producto/producto.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HeaderComponent } from './components/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
     ProductoListadoComponent,
     ListadoProductosComponent,
     ProductoComponent,
-    PrecioPipe
+    PrecioPipe,
+    HeaderComponent
   ],
   imports: [
     AppRoutingModule,

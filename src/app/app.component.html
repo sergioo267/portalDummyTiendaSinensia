@@ -1,39 +1,4 @@
-<mat-grid-list cols="5" rowHeight="100px">
-  <mat-grid-tile [colspan]="1">
-    <img style="margin-left: 10px;" width="100%" src="assets/imagenes/icono_hogar.JPG" />
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="2">
-    <div fxLayout="row" fxLayoutAlign="center center">
-      <mat-form-field appearance="legacy">
-        <!-- <mat-label>Legacy form field</mat-label> -->
-        <input matInput type="text">
-      </mat-form-field>
-      <button mat-raised-button color="warn">Warn</button>
-
-    </div>
-
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="2">
-    <div fxLayout="row" fxLayoutAlign="end center">
-
-      <button mat-raised-button color="warn"> Devoluciones y pedidos </button>
-
-      <span style="display:inline-block; width: 10px;"></span>
-
-
-      <button mat-raised-button color="warn">
-        <mat-icon aria-hidden="false" class="material-icons" aria-label="Example home icon">account_box</mat-icon> Mi Cuenta
-      </button>
-
-      <span style="display:inline-block; width: 10px;"></span>
-
-      <button mat-raised-button color="warn">
-        <mat-icon aria-hidden="false" class="material-icons" aria-label="Example home icon">shopping_cart</mat-icon>Mi Carrito
-      </button>
-
-    </div>
-  </mat-grid-tile>
-</mat-grid-list>
+<app-header></app-header>
 <router-outlet></router-outlet>
 <hr>
 <!-- Footer -->
