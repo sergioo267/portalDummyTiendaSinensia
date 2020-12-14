@@ -1,9 +1,9 @@
 
 <div style="margin-left: 5%; margin-right: 5%;" fxLayout="row" fxLayoutAlign="space-between start">
+    <div fxLayout="row" fxLayoutAlign="end center" >
 
-    <mat-grid-list cols="4" [gutterSize]="'20px'">
-        <mat-grid-tile *ngFor="let producto of productos" class="producto-card">
+        <div *ngFor="let producto of productos" fxFlex = "25%"class="producto-card">
             <producto-listado [producto]="producto"></producto-listado>
-        </mat-grid-tile>
-    </mat-grid-list>
+        </div>
+    </div>
 </div>
