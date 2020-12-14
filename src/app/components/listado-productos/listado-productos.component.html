@@ -1,0 +1,9 @@
+
+<div fxLayout="row" fxLayoutAlign="space-between start">
+
+    <mat-grid-list cols="4" [gutterSize]="'20px'">
+        <mat-grid-tile *ngFor="let producto of productos">
+            <producto-listado [producto]="producto"></producto-listado>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
