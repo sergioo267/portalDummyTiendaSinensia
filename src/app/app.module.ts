@@ -19,8 +19,12 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSelectModule} from '@angular/material/select';
 import { CommonModule } from '@angular/common';  
 import { ProductoComponent } from './components/producto/producto.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeaderComponent } from './components/header/header.component';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import {MatRadioModule} from '@angular/material/radio';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +33,7 @@ import { HeaderComponent } from './components/header/header.component';
     ProductoComponent,
     PrecioPipe,
     HeaderComponent
+    
   ],
   imports: [
     AppRoutingModule,
@@ -39,12 +44,15 @@ import { HeaderComponent } from './components/header/header.component';
     FlexLayoutModule,
     MatButtonModule,
     MatCardModule,
+    MatCheckboxModule,
     MatFormFieldModule,
     MatGridListModule,
     MatInputModule,
     MatIconModule,
+    MatRadioModule,
     MatSidenavModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTabsModule
     
 
   ],
