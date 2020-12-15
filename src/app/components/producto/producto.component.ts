@@ -107,6 +107,7 @@ export class ProductoComponent implements OnInit {
   }
 
   addToCard(){
+    console.log("aaa");
     this.carritoService.addProducto(this.producto);
     this.addSegurosToCard();
     this.router.navigate(["carrito"])

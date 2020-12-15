@@ -6,14 +6,22 @@ import { Producto } from '../model/producto';
 })
 export class CarritooService {
 
-  constructor() { }
   productos!:Producto[];
-
-  addProducto(producto:Producto){
-    this.productos.push(producto);
+  constructor() { 
+    this.productos = new Array();
   }
 
-  getProducto():Producto[]{
+  addProducto(producto:Producto){
+    const copy = new (producto.constructor as { new (): Producto })();
+    Object.assign(copy,producto);
+    this.productos.push(copy);
+  }
+
+  getProductos():Producto[]{
     return this.productos;
+  }
+
+  borrar(){
+    this.productos= new Array();
   }
 }

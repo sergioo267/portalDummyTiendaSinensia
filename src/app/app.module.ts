@@ -24,6 +24,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import {MatRadioModule} from '@angular/material/radio';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { CarritoComponent } from './components/carrito/carrito.component';
+import { ProductosCompradosComponent } from './components/productos-comprados/productos-comprados.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     ListadoProductosComponent,
     ProductoComponent,
     PrecioPipe,
-    HeaderComponent
+    HeaderComponent,
+    CarritoComponent,
+    ProductosCompradosComponent
     
   ],
   imports: [

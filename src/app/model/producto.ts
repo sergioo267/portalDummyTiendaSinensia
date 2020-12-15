@@ -23,4 +23,5 @@ export class Producto {
         this.id = id;
 
     }
+    
 }
