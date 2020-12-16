@@ -18,6 +18,6 @@ export class ProductoListadoComponent implements OnInit {
 
   goToProductComponent(): void {
 
-    this.router.navigate(["producto", this.producto.id])
+    this.router.navigate(["producto", this.producto.ean])
   }
 }

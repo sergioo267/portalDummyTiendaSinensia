@@ -1,3 +1,4 @@
+import { Categoria } from "./Categoria";
 import { Producto } from "./producto";
 
 export class Seguro extends Producto {
@@ -9,9 +10,13 @@ export class Seguro extends Producto {
         precio: number,
         foto: string,
         asegurable: boolean,
-        id: number,
-        seleccionado: boolean) {
-        super(nombre, descripcion, caracteristicas, precio, foto, asegurable, id);
+        ean: string,
+        categoria:Categoria,
+
+        seleccionado: boolean,
+        ) {
+
+        super(nombre, descripcion, caracteristicas, precio, foto, asegurable, ean, categoria);
         this.seleccionado = seleccionado;
 
     }

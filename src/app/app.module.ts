@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,6 +44,7 @@ import { ProductosCompradosComponent } from './components/productos-comprados/pr
     BrowserAnimationsModule,
     BrowserModule,
     CommonModule,
+
     FormsModule,
     FlexLayoutModule,
     MatButtonModule,
@@ -56,10 +57,11 @@ import { ProductosCompradosComponent } from './components/productos-comprados/pr
     MatRadioModule,
     MatSidenavModule,
     MatSelectModule,
-    MatTabsModule
+    MatTabsModule,
     
-
+    
   ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })

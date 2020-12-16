@@ -1,3 +1,6 @@
+import { Categoria } from "./Categoria";
+
+
 export class Producto {
     nombre!: string;
     descripcion!: string;
@@ -5,7 +8,8 @@ export class Producto {
     precio!: number;
     foto!: string;
     asegurable!: boolean;
-    id!: number;
+    ean!: string;
+    categoria!:Categoria;
 
     constructor(nombre: string,
         descripcion: string,
@@ -13,15 +17,19 @@ export class Producto {
         precio: number,
         foto: string,
         asegurable: boolean,
-        id: number) {
+        ean: string,
+        categoria: Categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.caracteristicas = caracteristicas;
         this.precio = precio;
         this.foto = foto;
         this.asegurable = asegurable;
-        this.id = id;
-
+        this.ean = ean;
+        this.categoria = categoria;
+        
     }
     
 }
+
+

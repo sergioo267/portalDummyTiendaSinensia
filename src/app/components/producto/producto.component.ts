@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Categoria } from 'src/app/model/Categoria';
 import { Producto } from 'src/app/model/producto';
 import { Seguro } from 'src/app/model/seguro';
 import { CarritooService } from 'src/app/services/carritoo.service';
@@ -26,7 +27,8 @@ export class ProductoComponent implements OnInit {
       84.91,
       "assets/imagenes/microhondas.jpg",
       true,
-      1),
+      "SADFGWRSSGSS",
+      new Categoria("Otros", "Otros")),
 
     new Producto("Rowenta RO3753EA Compact Power Cyclonic Aspirador Ciclónico",
       "Te presentamos este fantástico aspirador ciclónico de Rowenta de alto rendimiento con el que podrás aspirar cualquier superficie de tu hogar teniendo un entorno limpio y libre de polvo. Gracias a sus niveles de filtración de aire, podrás aspirar con la mayor eficiencia sin bolsas gracias a su depósito de 1.5 litros. Gracias a sus ruedas y su asa ergonómica, dispone de un fácil transporte y podrás usarlo sin apenas esfuerzo.",
@@ -34,7 +36,8 @@ export class ProductoComponent implements OnInit {
       58.80,
       "assets/imagenes/aspiradora.jpg",
       true,
-      2),
+      "6ERYU67REWRE",
+      new Categoria("Electrodomesticos", "aspiradoras")),
 
     new Producto("Tefal Chef Inducción Set 2 Sartenes Antiadherentes 22/28cm",
       "Las sartenes antiadherentes de Chef's delight, diseñadas para los amantes de la cocina, son el mejor compañero de cocina diaria, gracias a su recubrimiento Titanium Pro que dura hasta dos veces más. Con las sartenes de cocina de Chef para el deleite, la cocina se convierte en un verdadero placer todos los días.",
@@ -42,7 +45,8 @@ export class ProductoComponent implements OnInit {
       34.99,
       "assets/imagenes/sarten.jpg",
       true,
-      3),
+      "B08DSFODSFD",
+      new Categoria("Otros", "Otros")),
 
     new Producto("HKoenig FGX480 Mini Nevera 46L A+ Blanco",
       "Esta nevera de frío estático de 51 cm de altura y capacidad de 46L, integra un compartimento para cubitos de 4L. Además gracias a su termostato ajustable podrás elegir la temperatura de almacenamiento.",
@@ -50,7 +54,8 @@ export class ProductoComponent implements OnInit {
       109.99,
       "assets/imagenes/nevera.jpg",
       true,
-      4),
+      "B08M3DK38K",
+      new Categoria("Electrodomesticos", "refrigeradores")),
 
     new Producto("Tristar RK-6132 Arrocera Digital y Multicooker 1.5L 500W ",
       "¿En ocasiones tiene poco tiempo para poner sobre la mesa una comida saludable para su familia? Si es así, la Tristar RK-6132 es sin duda la solución que necesita. Gracias a esta arrocera y multicooker, el arroz siempre saldrá bueno y podrá cocinar de un modo versátil. Además de arroz, podrá preparar pasteles, sopa, yogurt, platos al vapor y otras comidas deliciosas. De este modo, preparará platos saludables para su familia sin preocuparse por ellos.",
@@ -58,14 +63,12 @@ export class ProductoComponent implements OnInit {
       53.68,
       "assets/imagenes/arrocera.jpg",
       true,
-      5),
+      "HYDF67FSDJ",
+      new Categoria("Utensilios", "gadgets")),
     ]
 
-    this.seguros = [new Seguro("A todo riesgo", "Seguro que cubre todo", "Seguro muy bueno", 12.90, "https://pbs.twimg.com/profile_images/900663321938022400/1Rb4Ou1S.jpg", true, 123345, false),
-    new Seguro("A todo riesgo", "Seguro que cubre todo", "Seguro muy bueno", 12.90, "https://pbs.twimg.com/profile_images/900663321938022400/1Rb4Ou1S.jpg", true, 123345, false)]
     let copiaArrayProductos = Object.assign([], this.productos);
     this.productosRelacionados = copiaArrayProductos.splice(0, 3);
-
   }
 
 
@@ -77,17 +80,15 @@ export class ProductoComponent implements OnInit {
       this.numeroColumnas = 1
     }
     this.activatedroute.paramMap.subscribe(paramMap => {
-      let productId = Number(paramMap.get('id'));
-      console.log(productId);
+      let productId = String(paramMap.get('id'));
       this.findProduct(productId);
     })
   }
 
-  findProduct(id: number) {
+  findProduct(ean: string) {
     for (let i = 0; i < this.productos.length; i++) {
-      if (this.productos[i].id == id) {
+      if (this.productos[i].ean == ean) {
         this.producto = this.productos[i];
-        console.log(this.producto);
         return;
       }
     }
@@ -99,6 +100,9 @@ export class ProductoComponent implements OnInit {
   }
 
   addSegurosToCard() {
+    if (!this.seguros){
+      return;
+    }
     for (let i = 0; i < this.seguros.length; i++) {
       if (this.seguros[i].seleccionado == true) {
         this.carritoService.addProducto(this.seguros[i]);
@@ -108,9 +112,20 @@ export class ProductoComponent implements OnInit {
   }
 
   addToCard() {
-    console.log("aaa");
+    console.log(this.seguros);
+
     this.carritoService.addProducto(this.producto);
     this.addSegurosToCard();
     this.router.navigate(["carrito"])
   }
+
+  metodoOutput(text:any){
+    console.log(text.detail);
+  }
+
+  addToCarrito(segurosSeleccionados:any){
+    this.seguros = segurosSeleccionados.detail;
+  }
+
+
 }
