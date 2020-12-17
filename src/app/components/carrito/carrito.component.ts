@@ -14,14 +14,14 @@ export class CarritoComponent implements OnInit , OnChanges{
   productos!:Producto[];
   seleccionado= "true";
   show:boolean =false;
-  seguros:Seguro[] = new Array();
+  seguros:Seguro[] = new Array<Seguro>();
   compra!:boolean;
-  compraFinalizada:boolean = false;
+  compraFinalizada!:boolean;
   codigoTienda:number = 28832;
   constructor(private carritoServices:CarritooService, private compraServices:CompraProductosService, private router:Router ) { }
   
   ngOnChanges(changes: SimpleChanges): void {
-    if(this.compraFinalizada == true){
+    if(this.compraFinalizada){
       this.compraServices.addProductosComprado(this.productos);
       this.carritoServices.borrar();
       this.router.navigate(["devoluciones-pedidos"])
@@ -29,8 +29,10 @@ export class CarritoComponent implements OnInit , OnChanges{
   }
 
   comprado(valor:any){
-    console.log("fsdfs")
     this.compraFinalizada = true;
+    this.compraServices.addProductosComprado(this.productos);
+    this.carritoServices.borrar();
+    this.router.navigate(["devoluciones-pedidos"])
   }
 
 
@@ -39,7 +41,6 @@ export class CarritoComponent implements OnInit , OnChanges{
     if (this.productos.length > 0 ){
       this.show = true;
     }
-    console.log(this.productos)
     this.productos.forEach(element=> {
       if( element instanceof Producto){
 
@@ -51,11 +52,6 @@ export class CarritoComponent implements OnInit , OnChanges{
 
   comprar(){
     this.compra = true;
-
-    // this.compraServices.addProductosComprado(this.productos);
-    // this.carritoServices.borrar();
-    // this.router.navigate(["devoluciones-pedidos"])
-
   }
 
 

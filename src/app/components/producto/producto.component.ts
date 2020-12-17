@@ -112,7 +112,6 @@ export class ProductoComponent implements OnInit {
   }
 
   addToCard() {
-    console.log(this.seguros);
 
     this.carritoService.addProducto(this.producto);
     this.addSegurosToCard();
@@ -126,6 +125,5 @@ export class ProductoComponent implements OnInit {
   addToCarrito(segurosSeleccionados:any){
     this.seguros = segurosSeleccionados.detail;
   }
-
 
 }

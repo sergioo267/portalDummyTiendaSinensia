@@ -3,7 +3,7 @@ import { Producto } from "./producto";
 
 export class Seguro extends Producto {
     seleccionado!: boolean;
-
+    
     constructor(nombre: string,
         descripcion: string,
         caracteristicas: string,
@@ -12,7 +12,6 @@ export class Seguro extends Producto {
         asegurable: boolean,
         ean: string,
         categoria:Categoria,
-
         seleccionado: boolean,
         ) {
 
