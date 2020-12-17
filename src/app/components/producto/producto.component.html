@@ -10,15 +10,22 @@
         <h3>Características</h3>
         <p>{{producto.caracteristicas}}</p>
         <hr>
+        
     </aside>
     <div class="reset"></div>
 </div>
+
 
 <div *ngIf="producto.asegurable" class="carrito">
     <h1 style="color: orangered;"><b>Seguros</b></h1>
 </div>
 
-<proba-element [producto] = "producto" (newItemEvent) = "metodoOutput($event)" (segurosContratados) = "addToCarrito($event)"></proba-element>
+<proba-element tienda="1" [producto] = "producto" (newItemEvent) = "metodoOutput($event)" (segurosContratados) = "addToCarrito($event)"></proba-element>
+
+<div class="carrito">
+    <button mat-raised-button color="warn"  (click) = "addToCard()"> Añadir a la cesta </button>
+</div>
+<hr>
 
 <div class="carrito">
     <h1 style="color: orangered;"><b>Productos relacionados</b></h1>
@@ -34,7 +41,5 @@
     </mat-grid-tile>
 </mat-grid-list>
 
-<div class="carrito">
-    <button mat-raised-button color="warn"  (click) = "addToCard()"> Añadir a la cesta </button>
-</div>
+
 

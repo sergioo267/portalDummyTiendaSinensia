@@ -22,6 +22,9 @@
     <hr>
 </div>
 
+<proba-element (comprado)="comprado($event)" [comprar]="compra" [segurosacontratar]="seguros" tienda="1" ></proba-element>
+
+
 <div *ngIf="show" class="carrito">
     <button mat-raised-button color="warn" (click)="comprar()" > Comprar </button>
 </div>
