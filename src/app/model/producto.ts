@@ -11,7 +11,8 @@ export class Producto {
     ean!: string;
     categoria!:Categoria;
     upc:string = "0 36000 29145 2";
-
+    seleccionado:boolean = false;
+    
     constructor(nombre: string,
         descripcion: string,
         caracteristicas: string,

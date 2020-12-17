@@ -43,7 +43,7 @@ export class ListadoProductosComponent implements OnInit {
       "El recubrimiento Titanium Pro que dura hasta 2 veces más. El recubrimiento antiadherente de alta calidad ofrece una mayor duración y resistencia gracias a una capa mineral ultrarreforzada y un recubrimiento protector mejorado con partículas de titanio.\nLa tecnología exclusiva Thermospot® indica la temperatura perfecta para empezar a cocinar platos deliciosos.\nCómoda manipulación para un manejo fácil.\nSin salpicaduras. Su forma profunda garantiza una cocción más ordenada sin que se peguen los ingredientes y evita salpicaduras y derrames en su placa.\nExterior antiadherente fácil de limpiar.\nApta para todo tipo de cocinas, incluidas las de inducción.\nCocina sano, piensa en el medio ambiente. Nuestro objetivo es fabricar productos duraderos que puedan usarse durante años, al mismo tiempo que respetamos la salud de nuestro planeta mediante el uso de productos reciclables con revestimientos antiadherentes seguros (sin PFOA, plomo ni cadmio).",
       34.99,
       "assets/imagenes/sarten.jpg",
-      true,
+      false,
       "B08DSFODSFD",
       new Categoria("Otros", "Otros")),
 

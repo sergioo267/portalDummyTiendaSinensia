@@ -6,7 +6,7 @@
     <img mat-card-image [src]="producto.foto" alt="Photo of a Shiba Inu" class="card-image">
     <mat-card-content>
         <p>
-            {{producto.precio}}
+            <b>{{producto.precio | number: '1.2-2'}} €</b>
         </p>
     </mat-card-content>
     <mat-card-actions>

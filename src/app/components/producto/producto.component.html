@@ -10,17 +10,18 @@
         <h3>Características</h3>
         <p>{{producto.caracteristicas}}</p>
         <hr>
+        <h2 style="color: orangered;"><b>Precio: {{producto.precio | number: '1.2-2'}} € </b></h2>
         
     </aside>
     <div class="reset"></div>
 </div>
 
 
-<div *ngIf="producto.asegurable" class="carrito">
+<div *ngIf="asegurable()" class="carrito">
     <h1 style="color: orangered;"><b>Seguros</b></h1>
 </div>
 
-<proba-element tienda="1" [producto] = "producto" (newItemEvent) = "metodoOutput($event)" (segurosContratados) = "addToCarrito($event)"></proba-element>
+<generali-widget tienda="1" [producto] = "producto" (newItemEvent) = "metodoOutput($event)" (segurosContratados) = "addToCarrito($event)"></generali-widget>
 
 <div class="carrito">
     <button mat-raised-button color="warn"  (click) = "addToCard()"> Añadir a la cesta </button>
